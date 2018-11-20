@@ -23,6 +23,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtensionFunctions", "Exten
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions", "Exceptions\Exceptions.csproj", "{288C2ED9-E1F9-48AE-B685-13ABEC0BEEC3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Printer", "Printer\Printer.csproj", "{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Wpf1", "Wpf1\Wpf1.csproj", "{8DA754A4-6465-4D34-AAF1-E83DCF633602}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -151,6 +155,30 @@ Global
 		{288C2ED9-E1F9-48AE-B685-13ABEC0BEEC3}.Release|x64.Build.0 = Release|Any CPU
 		{288C2ED9-E1F9-48AE-B685-13ABEC0BEEC3}.Release|x86.ActiveCfg = Release|Any CPU
 		{288C2ED9-E1F9-48AE-B685-13ABEC0BEEC3}.Release|x86.Build.0 = Release|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Debug|x64.Build.0 = Debug|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Debug|x86.Build.0 = Debug|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Release|x64.ActiveCfg = Release|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Release|x64.Build.0 = Release|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Release|x86.ActiveCfg = Release|Any CPU
+		{06EF06F6-0F99-4E98-96D4-E5A18D1DD35F}.Release|x86.Build.0 = Release|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Debug|x64.Build.0 = Debug|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Debug|x86.Build.0 = Debug|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Release|x64.ActiveCfg = Release|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Release|x64.Build.0 = Release|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Release|x86.ActiveCfg = Release|Any CPU
+		{8DA754A4-6465-4D34-AAF1-E83DCF633602}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
