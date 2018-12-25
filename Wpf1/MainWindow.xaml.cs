@@ -37,8 +37,6 @@ namespace Wpf1
                 MessageBoxOptions.RightAlign | MessageBoxOptions.RtlReading);
             if (result == MessageBoxResult.OK)
                 MyButton.Content = "די לחפור";
-
-            e.
             //MyButton.Content = "שלום וברכה";
             //MyButton.Visibility = Visibility.Hidden;
         }

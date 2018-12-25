@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:Wpf1"
         mc:Ignorable="d"
         Title="My Main and Best in Class Window" Height="449" Width="800" HorizontalAlignment="Center">
-    <Grid>
+    <Window.Resources>
+        <LinearGradientBrush x:Key="myBrush">
+            <GradientStop Color="Blue" Offset="0" />
+            <GradientStop Color="Yellow" Offset="0.5" />
+            <GradientStop Color="Red" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Resources>
+
+    <Grid Background="{StaticResource myBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
             <ColumnDefinition Width="775*"/>
@@ -16,8 +24,10 @@
                 VerticalAlignment="Top" Width="246" 
                 RenderTransformOrigin="0.5,0.5" Height="126"
                 Grid.Column="1"
+                Background="{StaticResource myBrush}"
                 MouseDoubleClick="MyButton_MouseDoubleClick"
-                Click="MyButton_Click" MouseMove="MyButton_MouseMove">
+                Click="MyButton_Click" MouseMove="MyButton_MouseMove"
+                IsEnabled="{Binding ElementName=chkBoxAgree, Path=IsChecked}">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -26,6 +36,13 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
+        <Label Content="Terms of Use&#xD;&#xA;Bla bla bla bla bla bla bla &#xD;&#xA;Bla bla bla bla bla bla bla &#xD;&#xA;Bla bla bla bla bla bla bla &#xD;&#xA;Bla bla bla bla bla bla bla " Grid.Column="1" HorizontalAlignment="Left" Height="88" Margin="24,10,0,0" VerticalAlignment="Top" Width="457"/>
+        <CheckBox x:Name="chkBoxAgree" Content="I Agree" IsChecked="False" Grid.Column="1" HorizontalAlignment="Left" Margin="41,103,0,0" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="107" Margin="162,118,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="234"/>
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="433,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"
+                 Background="{Binding Path=Text,
+                      RelativeSource={RelativeSource Mode=Self}}"
+                 />
 
     </Grid>
 </Window>
