@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
@@ -46,6 +47,17 @@ namespace Wpf1
                         new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
             }
         }
+
+        ObservableCollection<Student> students = new ObservableCollection<Student>()
+        {
+            new Student() {Id = 1, Name = "Yossi", Age = 16},
+            new Student() {Id = 2, Name = "Yanki", Age = 17},
+            new Student() {Id = 3, Name = "Avi", Age = 18},
+            new Student() {Id = 4, Name = "Yitzi", Age = 19},
+            new Student() {Id = 5, Name = "Dudi", Age = 20}
+        };
+
+        Student theStudent = new Student() { Id = 10, Name = "Aharon", Age = 21 };
 
         public MainWindow()
         {
@@ -97,6 +109,12 @@ namespace Wpf1
             dropList.Add("First");
             dropList.Add("Second");
             MyCombo.ItemsSource = dropList;
+            students.Add(theStudent);
+            List1.ItemsSource = students;
+            //System.Windows.Data.CollectionViewSource studentViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("studentViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            // studentViewSource.Source = [generic data source]
+            grid1.DataContext = theStudent;
         }
     }
 }

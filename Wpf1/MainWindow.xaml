@@ -16,9 +16,21 @@
         </LinearGradientBrush>
         <local:MyData x:Key="mySource" User="Dani" Password="123456" />
         <local:IntString x:Key="convItoS"/>
+        <DataTemplate x:Key="studentTemplate" DataType="local:Student">
+            <StackPanel Orientation="Horizontal">
+                <Label Content="{Binding Path=Id}"/>
+                <Label Content="{Binding Path=Name}"/>
+                <Label Content="{Binding Path=Age}"/>
+            </StackPanel>
+        </DataTemplate>
+        <Style x:Key="wrap" TargetType="TextBox">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="Background" Value="Aqua"/>
+            <Setter Property="Foreground" Value="Brown"/>
+        </Style>
     </Window.Resources>
 
-    <Grid x:Name="MyGrid" Background="{StaticResource myBrush}">
+    <Grid x:Name="MyGrid" Background="{StaticResource myBrush}" Margin="0,0,-49,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
             <ColumnDefinition Width="775*"/>
@@ -48,26 +60,26 @@
                    Height="107" Margin="162,118,0,0" Width="234"
                    Text="{Binding Path=MyOwner.User}" />
         <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="433,118,0,0"
-                 TextWrapping="Wrap" Text="Yellow" VerticalAlignment="Top" Width="120"
+                 Style="{StaticResource wrap}" Text="Yellow" VerticalAlignment="Top" Width="120"
                  Background="{Binding Path=Text, RelativeSource={RelativeSource Mode=Self}}"
                  />
         <TextBox x:Name="TxtBox2"
                  Text="{Binding Source={StaticResource mySource}, Path=User}"
                  Grid.Column="1" HorizontalAlignment="Left"
                  Height="25" Margin="10,130,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Style="{StaticResource wrap}" VerticalAlignment="Top"
                  Width="138"/>
         <TextBox x:Name="TxtBox3"
                  Text="{Binding Path=User}"
                  Grid.Column="1" HorizontalAlignment="Left"
                  Height="23" Margin="10,170,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Style="{StaticResource wrap}" VerticalAlignment="Top"
                  Width="138"/>
         <TextBox x:Name="TxtBox4"
                  Text="{x:Static local:MyData.MinPasswordStr}"
                  Grid.Column="1" HorizontalAlignment="Left"
                  Height="23" Margin="10,210,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Style="{StaticResource wrap}" VerticalAlignment="Top"
                  Width="138"/>
         <!--TextBox x:Name="TxtBox5"
                  Text="{Binding Path=MyOwner.User}"
@@ -79,9 +91,27 @@
                  Text="{Binding Source={x:Static local:MyData.MinPassword}, Mode=OneTime, Converter={StaticResource convItoS}}"
                  Grid.Column="1" HorizontalAlignment="Left"
                  Height="23" Margin="10,270,0,0"
-                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Style="{StaticResource wrap}" VerticalAlignment="Top"
                  Width="138"/>
         <ComboBox x:Name="MyCombo" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="10,298,0,0" VerticalAlignment="Top" Width="161"/>
-
+        <ListBox x:Name="List1" Grid.Column="1" HorizontalAlignment="Left" Height="78" Margin="200,240,0,0" VerticalAlignment="Top" Width="209"
+                 ItemTemplate="{StaticResource studentTemplate}"/>
+        <Grid x:Name="grid1" Grid.Column="1" HorizontalAlignment="Left" Margin="601,36,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Content="Age:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center"/>
+            <TextBox x:Name="ageTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+            <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <Label x:Name="idLabel" Content="{Binding Id}" Grid.Column="1" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center"/>
+            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center"/>
+            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120"/>
+        </Grid>
     </Grid>
 </Window>
