@@ -4,17 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf1"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="My Main and Best in Class Window" Height="449" Width="800" HorizontalAlignment="Center">
+        Title="My Main and Best in Class Window" Height="449" Width="800" HorizontalAlignment="Center" Loaded="Window_Loaded">
     <Window.Resources>
+        <sys:Int32 x:Key="myint">2</sys:Int32>
         <LinearGradientBrush x:Key="myBrush">
             <GradientStop Color="Blue" Offset="0" />
             <GradientStop Color="Yellow" Offset="0.5" />
             <GradientStop Color="Red" Offset="1" />
         </LinearGradientBrush>
+        <local:MyData x:Key="mySource" User="Dani" Password="123456" />
+        <local:IntString x:Key="convItoS"/>
     </Window.Resources>
 
-    <Grid Background="{StaticResource myBrush}">
+    <Grid x:Name="MyGrid" Background="{StaticResource myBrush}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="17*"/>
             <ColumnDefinition Width="775*"/>
@@ -38,11 +42,46 @@
         </Button>
         <Label Content="Terms of Use&#xD;&#xA;Bla bla bla bla bla bla bla &#xD;&#xA;Bla bla bla bla bla bla bla &#xD;&#xA;Bla bla bla bla bla bla bla &#xD;&#xA;Bla bla bla bla bla bla bla " Grid.Column="1" HorizontalAlignment="Left" Height="88" Margin="24,10,0,0" VerticalAlignment="Top" Width="457"/>
         <CheckBox x:Name="chkBoxAgree" Content="I Agree" IsChecked="False" Grid.Column="1" HorizontalAlignment="Left" Margin="41,103,0,0" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Height="107" Margin="162,118,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="234"/>
-        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="433,118,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"
-                 Background="{Binding Path=Text,
-                      RelativeSource={RelativeSource Mode=Self}}"
+        <TextBlock x:Name="MyTxtBlock"
+                   Grid.Column="1" TextWrapping="Wrap"
+                   HorizontalAlignment="Left" VerticalAlignment="Top"
+                   Height="107" Margin="162,118,0,0" Width="234"
+                   Text="{Binding Path=MyOwner.User}" />
+        <TextBox Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="433,118,0,0"
+                 TextWrapping="Wrap" Text="Yellow" VerticalAlignment="Top" Width="120"
+                 Background="{Binding Path=Text, RelativeSource={RelativeSource Mode=Self}}"
                  />
+        <TextBox x:Name="TxtBox2"
+                 Text="{Binding Source={StaticResource mySource}, Path=User}"
+                 Grid.Column="1" HorizontalAlignment="Left"
+                 Height="25" Margin="10,130,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Width="138"/>
+        <TextBox x:Name="TxtBox3"
+                 Text="{Binding Path=User}"
+                 Grid.Column="1" HorizontalAlignment="Left"
+                 Height="23" Margin="10,170,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Width="138"/>
+        <TextBox x:Name="TxtBox4"
+                 Text="{x:Static local:MyData.MinPasswordStr}"
+                 Grid.Column="1" HorizontalAlignment="Left"
+                 Height="23" Margin="10,210,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Width="138"/>
+        <!--TextBox x:Name="TxtBox5"
+                 Text="{Binding Path=MyOwner.User}"
+                 Grid.Column="1" HorizontalAlignment="Left"
+                 Height="23" Margin="10,240,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Width="138"/-->
+        <TextBox x:Name="TxtBox6"
+                 Text="{Binding Source={x:Static local:MyData.MinPassword}, Mode=OneTime, Converter={StaticResource convItoS}}"
+                 Grid.Column="1" HorizontalAlignment="Left"
+                 Height="23" Margin="10,270,0,0"
+                 TextWrapping="Wrap" VerticalAlignment="Top"
+                 Width="138"/>
+        <ComboBox x:Name="MyCombo" Grid.Column="1" HorizontalAlignment="Left" Height="31" Margin="10,298,0,0" VerticalAlignment="Top" Width="161"/>
 
     </Grid>
 </Window>
